@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>D</title>
+    </head>
+    <body> 
+       
+        <div class="main">
+            <div class="container" id="myDIV">
+            </div>
+        </div>     
+    </body>
+   <script > 
+        for(var i = 1 ; i<= 30 ; i++) {
+            const pokeApi = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        fetch( pokeApi)
+            .then( response => {
+                return response.json();
+            })
+                .then(
+                function(pokemon){
+                    var  poke = `
+                            <div class="card_item" > <img class="card_img" src="${pokemon.sprites["front_default"]}"><h1>${pokemon.name}</h1><h2>#0${pokemon.id}</h2> </div>`;
+                    document.getElementById('myDIV').innerHTML += poke;  
+                    }        
+                )};
+     </script>
+
+</html>
